@@ -1,0 +1,24 @@
+{
+  "name": "week-five-project",
+  "version": "1.0.0",
+  "description": "In your game, you will be playing against the computer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jason-tuttle/week-five-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jason-tuttle/week-five-project/issues"
+  },
+  "homepage": "https://github.com/jason-tuttle/week-five-project#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-validator": "^3.2.0"
+  }
+}
