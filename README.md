@@ -5,12 +5,14 @@ In your game, you will be playing against the computer.
 
 When a user that is not in a current game arrives at your root page, your app must select a word at random from the list of words in the file /usr/share/dict/words. This file exists on your computer already. You will have to read it with Node. The following line will read it and split it into words:
 
-> const words = fs.readFileSync("/usr/share/dict/words", "utf-8").toLowerCase().split("\n");
+```const words = fs.readFileSync("/usr/share/dict/words", "utf-8").toLowerCase().split("\n");
+```
 
 Store the word the user is trying to guess in a session.
 
 On the page, show the number of letters in the word like so:
-> _ _ _ _ _ _ _
+
+ \_ \_ \_ \_ \_ \_ \_
 
 Ask the user to supply one guess (i.e. letter) at a time, using a form. This form should be validated to make sure only 1 letter is sent. This letter can be upper or lower case and it should not matter. If a user enters more than one letter, tell them the input is invalid and let them try again.
 
@@ -18,7 +20,7 @@ Let the user know if their guess appears in the computer's word. You will have t
 
 Display the partially guessed word, as well as letters that have not been guessed. For example, if the word is BOMBARD and the letters guessed are a, b, and d, the screen should display:
 
-B _ _ B A _ D
+B \_ \_ B A \_ D
 
 A user is allowed 8 guesses. Remind the user of how many guesses they have left after each round. The guesses they have left will be determined by what you have in the session.
 
