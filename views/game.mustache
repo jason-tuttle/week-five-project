@@ -15,7 +15,11 @@
     </header>
     <section class="game">
       <div class="game-word">
-        {{game.guessWord}}
+        <p>
+        {{#game.guessWord}}
+          {{.}}&nbsp;
+        {{/game.guessWord}}
+      </p>
       </div>
       <div class="game-form">
         <form class="game-form" action="/game" method="post">
@@ -24,9 +28,22 @@
           <input type="submit" name="submit" value="Make A Guess">
         </form>
       </div>
-      <div class="game-guesses">
-        <p>Letters guessed: <span class="guessed">{{#game.guessed}}{{.}},{{/game.guessed}}</span></p>
+      <div class="error-message">
+        <span>{{error}}</span>
       </div>
+      <div class="game-guesses">
+        <p>Letters guessed: <span class="guessed">{{#game.guessed}}{{.}} {{/game.guessed}}</span></p>
+      </div>
+      {{#win}}
+        <div class="win-message">
+          <p>{{winLossMessage}}</p>
+        </div>
+      {{/win}}
+      {{#lose}}
+        <div class="lose-message">
+          <p>{{winLossMessage}}</p>
+        </div>
+      {{/lose}}
     </section>
   </body>
 </html>
