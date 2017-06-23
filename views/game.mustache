@@ -19,7 +19,12 @@
         {{#game.guessWord}}
           {{.}}&nbsp;
         {{/game.guessWord}}
-      </p>
+        </p>
+        {{#lose}}
+          <p class="lose-message">
+            The word was: {{game.word}}
+          </p>
+        {{/lose}}
       </div>
       <div class="game-form">
         <form class="game-form" action="/game" method="post">
@@ -34,16 +39,18 @@
       <div class="game-guesses">
         <p>Letters guessed: <span class="guessed">{{#game.guessed}}{{.}} {{/game.guessed}}</span></p>
       </div>
-      {{#win}}
-        <div class="win-message">
-          <p>{{winLossMessage}}</p>
-        </div>
-      {{/win}}
-      {{#lose}}
-        <div class="lose-message">
-          <p>{{winLossMessage}}</p>
-        </div>
-      {{/lose}}
+      <div class="">
+        <form class="" action="/reset" method="post">
+        {{#win}}
+            <p class="win-message">{{winLossMessage}}</p>
+            <input type="submit" name="playagain" value="Play Again">
+        {{/win}}
+        {{#lose}}
+            <p class="lose-message">{{winLossMessage}}</p>
+            <input type="submit" name="playagain" value="Play Again">
+        {{/lose}}
+        </form>
+      </div>
     </section>
   </body>
 </html>
