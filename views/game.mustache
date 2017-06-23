@@ -7,15 +7,15 @@
   <body>
     <header>
       <div class="head left">
-        MYSTERY WORD
+        <h1>MYSTERY WORD</h1>
       </div>
       <div class="head right">
-        You have # guesses left.
+        You have {{game.guessesLeft}} guesses left.
       </div>
     </header>
     <section class="game">
       <div class="game-word">
-        _ _ _ _ _ _
+        {{game.guessWord}}
       </div>
       <div class="game-form">
         <form class="game-form" action="/game" method="post">
@@ -25,7 +25,7 @@
         </form>
       </div>
       <div class="game-guesses">
-        <p>Letters guessed: <span class="guessed">a, b, c</span></p>
+        <p>Letters guessed: <span class="guessed">{{#game.guessed}}{{.}},{{/game.guessed}}</span></p>
       </div>
     </section>
   </body>
