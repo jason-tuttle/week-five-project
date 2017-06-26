@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 const pickWord = function (array, mode) {
   let min, max;
+  let word = "";
   switch(mode) {
     case "easy":
       min = 4;
@@ -46,8 +47,9 @@ const pickWord = function (array, mode) {
       break;
   }
   do {
-    let word = array[(Math.floor(Math.random() * array.length))];
-  } while ((word.length < min) && (word.length > max));
+    word = array[(Math.floor(Math.random() * array.length))];
+  } while ((word.length < min) || (word.length > max));
+  console.log("> pickWord: min="+min+" max="+max);
   return word;
 };
 
@@ -62,7 +64,7 @@ app.use('/game', function(req, res, next) {
   if (!game) {
     game = req.session.game = {};
     const words = fs.readFileSync("/usr/share/dict/words", "utf-8").toLowerCase().split("\n");
-    game.word = pickWord(words, req.session.game_mode);
+    game.word = pickWord(words, req.session.mode);
     game.guessWord = Array.from(game.word).fill("_");
     game.guessed = [];
     game.guessesLeft = 8;

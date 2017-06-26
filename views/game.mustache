@@ -3,19 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>MYSTERY WORD :: PLAY!</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
   </head>
   <body>
     <header>
       <div class="head left">
-        <h1>MYSTERY WORD</h1>
+        MYSTERY WORD
       </div>
       <div class="head right">
         You have {{game.guessesLeft}} guesses left.
       </div>
     </header>
     <section class="game">
-      <div class="game-word">
-        <p>
+      <div>
+        <p class="game-word">
         {{#game.guessWord}}
           {{.}}&nbsp;
         {{/game.guessWord}}
