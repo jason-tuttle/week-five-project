@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>MYSTERY WORD :: PLAY!</title>
+    <link href="https://fonts.googleapis.com/css?family=Coustard:400,900" rel="stylesheet">
     <link rel="stylesheet" href="/public/css/styles.css">
   </head>
   <body>
@@ -28,10 +29,10 @@
         {{/lose}}
       </div>
       <div class="game-form">
-        <form class="game-form" action="/game" method="post">
+        <form class="game-form" id="game-form" action="/game" method="post">
           <label for="guess">Guess a Letter:</label>
-          <input type="text" id="guess" name="guess" value="">
-          <input type="submit" name="submit" value="Make A Guess">
+          <input type="text" id="guess" name="guess" value="" {{#gameOver}}disabled="true"{{/gameOver}} autofocus>
+          <button type="submit" name="button" {{#gameOver}}disabled="true"{{/gameOver}}>Make A Guess</button>
         </form>
       </div>
       <div class="error-message">
@@ -44,11 +45,11 @@
         <form class="" action="/reset" method="post">
         {{#win}}
             <p class="win-message">{{winLossMessage}}</p>
-            <input type="submit" name="playagain" value="Play Again">
+            <input type="submit" class="button" name="playagain" value="Play Again">
         {{/win}}
         {{#lose}}
             <p class="lose-message">{{winLossMessage}}</p>
-            <input type="submit" name="playagain" value="Play Again">
+            <input type="submit" class="button" name="playagain" value="Play Again">
         {{/lose}}
         </form>
       </div>

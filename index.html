@@ -3,16 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>MYSTERY WORD</title>
+    <link href="https://fonts.googleapis.com/css?family=Coustard:400,900" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/styles.css">
   </head>
   <body>
-    <p>Welcome to the Mystery Word game.</p>
-    <form class="form" action="/" method="post">
-      <select class="" name="game_mode">
+    <p class="intro">Welcome to the Mystery Word game.</p>
+    <form class="form" id="play" action="/" method="post">
+      <label for="select-mode">Select A Level Mode:</label><br>
+      <select class="" id="select-mode" name="game_mode">
         <option value="easy">Easy</option>
         <option value="normal">Normal</option>
         <option value="hard">Hard</option>
       </select>
-      <input type="submit" name="play" value="Play the Game">
+      <button type="submit" form="play" name="button">Play the Game!</button>
     </form>
   </body>
 </html>

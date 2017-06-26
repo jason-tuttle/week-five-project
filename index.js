@@ -68,6 +68,7 @@ app.use('/game', function(req, res, next) {
     game.guessWord = Array.from(game.word).fill("_");
     game.guessed = [];
     game.guessesLeft = 8;
+    game.over = false;
     console.log(Object.values(req.session.game));
   }
   next();
@@ -107,7 +108,8 @@ app.post('/game', function(req, res) {
           });
           game.guessed.push(guess);
           if (!game.guessWord.includes("_")) {  // if there are no more blanks in the guessWord...
-            res.render('game', { game: game, win: true, winLossMessage: "You win! 😁"})
+            game.over = true;
+            res.render('game', { game: game, win: true, winLossMessage: "You win! 😁", gameOver: game.over})
           } else {  // otherwise we have more letters to guess
             res.render('game', { game: game });
           }
@@ -116,7 +118,8 @@ app.post('/game', function(req, res) {
     }
   } else { // we just used our last guess
     game.guessesLeft--;
-    res.render('game', { game: game, lose: true, winLossMessage: "You're out of guesses... ☹️"})
+    game.over = true;
+    res.render('game', { game: game, lose: true, winLossMessage: "You're out of guesses... ☹️", gameOver: game.over})
   }
 });
 
