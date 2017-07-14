@@ -128,7 +128,7 @@ app.post('/reset', function(req, res) {
   res.redirect('/game');
 });
 
-app.listen(3030, () => console.log("Roll tape, quiet in the house..."));
+app.listen(process.env.PORT || 3000, () => console.log("Roll tape, quiet in the house..."));
 
 /*
 ☹️
